@@ -15,33 +15,35 @@ class TodoList extends StatelessWidget {
       itemBuilder: (context, index) {
         return Platform.isAndroid
             ? Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      listan[index].titel,
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      listan[index].kommentar,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontStyle: FontStyle.italic),
-                    ),
-                    Text(
-                      listan[index].date,
-                      style: TextStyle(fontSize: 12),
-                    ),
-                  ],
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: Card(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        listan[index].titel,
+                        style: TextStyle(
+                            fontSize: 20, 
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        listan[index].kommentar,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontStyle: FontStyle.italic),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 6),
+                        child: Text(
+                          listan[index].date,
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               )
-
-
-
-
             : Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
@@ -49,19 +51,29 @@ class TodoList extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       listan[index].titel,
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
+                      style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none,
+                          color: Colors.black),
                     ),
                     Text(
                       listan[index].kommentar,
                       style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.grey,
                           fontSize: 18,
-                          fontStyle: FontStyle.italic),
+                          fontWeight: FontWeight.w300,
+                          decoration: TextDecoration.none),
                     ),
-                    Text(
-                      listan[index].date,
-                      style: TextStyle(fontSize: 12),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 6),
+                      child: Text(
+                        listan[index].date,
+                        style: TextStyle(
+                            fontSize: 12, 
+                            decoration: TextDecoration.none,
+                            color: Colors.black),
+                      ),
                     ),
                   ],
                 ),

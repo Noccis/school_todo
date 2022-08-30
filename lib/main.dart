@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(primarySwatch: Colors.blueGrey),
       title: "It Högskolan Flutter App",
       home: MyHomePage(),
     );
@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Platform.isIOS
+    return Platform.isAndroid
         ? Scaffold(
             // För android endast
             appBar: AppBar(
@@ -68,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           )
         : CupertinoPageScaffold(
+          
             // För IOS endast
             child: helaTodoListan.isEmpty
                 ? Center(
