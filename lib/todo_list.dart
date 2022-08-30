@@ -17,30 +17,33 @@ class TodoList extends StatelessWidget {
             ? Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Card(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        listan[index].titel,
-                        style: TextStyle(
-                            fontSize: 20, 
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        listan[index].kommentar,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
-                            fontStyle: FontStyle.italic),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 6),
-                        child: Text(
-                          listan[index].date,
-                          style: TextStyle(fontSize: 12),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          listan[index].titel,
+                          style: TextStyle(
+                              fontSize: 20, 
+                              fontWeight: FontWeight.bold),
                         ),
-                      ),
-                    ],
+                        Text(
+                          listan[index].kommentar,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontStyle: FontStyle.italic),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 6),
+                          child: Text(
+                            listan[index].date,
+                            style: TextStyle(fontSize: 12),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               )
