@@ -38,9 +38,12 @@ class _NyTodoState extends State<NyTodo> {
           decoration: InputDecoration(labelText: "Datum"),
           controller: dateController,
         ),
-        ElevatedButton(
-          onPressed: skickaTillbaka,
-          child: Text("Bekräfta"),
+        Padding(
+          padding: const EdgeInsets.only(top: 50),
+          child: ElevatedButton(
+            onPressed: skickaTillbaka,
+            child: Text("Bekräfta"),
+          ),
         )
       ],
     );

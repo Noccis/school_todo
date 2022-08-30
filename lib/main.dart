@@ -10,11 +10,10 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(primarySwatch: Colors.blueGrey),
       title: "It Högskolan Flutter App",
       home: MyHomePage(),
     );
@@ -22,7 +21,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -47,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Platform.isIOS
+    return Platform.isAndroid
         ? Scaffold(
             // För android endast
             appBar: AppBar(
@@ -56,28 +54,43 @@ class _MyHomePageState extends State<MyHomePage> {
             body: helaTodoListan.isEmpty
                 ? Center(
                     child: Center(
-                        child: Column(
-                      children: [Text('Listan är tom')],
+                        child: Padding(
+                      padding: const EdgeInsets.only(top: 300),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Listan är tom',
+                            style: TextStyle(fontSize: 30),
+                          )
+                        ],
+                      ),
                     )),
                   )
                 : Center(
                     child: TodoList(helaTodoListan),
                   ),
             floatingActionButton: FloatingActionButton(
-              onPressed: () => startTodo(context), child: Icon(Icons.add),
+              onPressed: () => startTodo(context),
+              child: Icon(Icons.add),
             ),
           )
         : CupertinoPageScaffold(
             // För IOS endast
             child: helaTodoListan.isEmpty
                 ? Center(
-                    child: Text('Listan är tom!'),
+                    child: Text(
+                      'Listan är tom!',
+                      style: TextStyle(
+                          color: Colors.black, 
+                          decoration: TextDecoration.none,
+                          fontWeight: FontWeight.normal),
+                    ),
                   )
                 : Center(
                     child: TodoList(helaTodoListan),
                   ),
             navigationBar: CupertinoNavigationBar(
-              middle: Text('Dodo app'),
+              middle: Text('Todo app'),
               backgroundColor: Colors.green,
               trailing: GestureDetector(
                 onTap: () => startTodo(context),
