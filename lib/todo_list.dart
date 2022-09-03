@@ -13,7 +13,7 @@ class TodoList extends StatelessWidget {
     return ListView.builder(
       itemCount: listan.length,
       itemBuilder: (context, index) {
-        return Platform.isAndroid
+        return Platform.isIOS
             ? Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Card(
