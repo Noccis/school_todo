@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Platform.isIOS
+    return Platform.isAndroid
         ? Scaffold(
             // För android endast
             appBar: AppBar(
